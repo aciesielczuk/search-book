@@ -9,20 +9,16 @@
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
-<p>Search by:</p>
-<input type="radio" name="searchBy" onclick="setParam()" value="author" checked> Author
-<input type="radio" name="searchBy" onclick="setParam()" value="title"> Title<br>
 
-<form action="/getBooks">
-    <input id=searchValue name="author">
+<form action="/search">
+    <p>Search by:</p>
+    <input type="radio" name="searchBy" value="author" checked> Author
+    <input type="radio" name="searchBy" value="title"> Title<br>
+    <input name="query">
     <input type="submit" value="Search">
 </form>
 </body>
 
 
-<script type="text/javascript">
-    function setParam() {
-        document.getElementById('searchValue').name = document.querySelector('input[name=searchBy]:checked').value
-    }
-</script>
+
 </html>
