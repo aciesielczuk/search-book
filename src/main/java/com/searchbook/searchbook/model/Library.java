@@ -4,8 +4,7 @@ import com.searchbook.searchbook.SearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -40,15 +39,12 @@ public class Library {
     }
 
     public List<Book> search(SearchCriteria searchCriteria) {
-
-        if (searchCriteria.getSearchBy().equals("author")) {
-            Predicate<Book> byAuthor = b -> b.getAuthor().equals(searchCriteria.getQuery());
-            return booksList.stream().filter(byAuthor).collect(Collectors.toList());
-        } else if (searchCriteria.getSearchBy().equals("title")) {
-            Predicate<Book> byTitle = b -> b.getAuthor().equals(searchCriteria.getQuery());
-            return booksList.stream().filter(byTitle).collect(Collectors.toList());
-        }
-        return booksList;
+        Predicate<Book> searchValue = null;
+        if (searchCriteria.getSearchBy().equals("author"))
+            searchValue = b -> b.getAuthor().equals(searchCriteria.getQuery());
+        else if (searchCriteria.getSearchBy().equals("title"))
+            searchValue = b -> b.getTitle().equals(searchCriteria.getQuery());
+        return booksList.stream().filter(Objects.requireNonNull(searchValue)).collect(Collectors.toList());
     }
 
 }

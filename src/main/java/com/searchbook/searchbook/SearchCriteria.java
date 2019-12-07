@@ -20,6 +20,11 @@ public class SearchCriteria {
     public SearchCriteria() {
     }
 
+    public SearchCriteria(@NotBlank String query, String searchBy) {
+        this.query = query;
+        this.searchBy = searchBy;
+    }
+
     public String getQuery() {
         return query;
     }
