@@ -1,5 +1,6 @@
 package com.searchbook.searchbook.model;
 
+
 public class Book {
     private String author;
     private String title;

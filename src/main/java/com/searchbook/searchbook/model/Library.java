@@ -1,21 +1,16 @@
 package com.searchbook.searchbook.model;
 
 import com.searchbook.searchbook.SearchCriteria;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-@Service
 public class Library {
 
-    private SearchCriteria searchCriteria;
+    public SearchCriteria searchCriteria;
     private List<Book> booksList;
 
-
-    @Autowired
     public Library() {
         this.booksList = createList();
     }

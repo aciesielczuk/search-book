@@ -1,11 +1,9 @@
 package com.searchbook.searchbook;
 
-import org.springframework.stereotype.Component;
-import javax.validation.constraints.NotBlank;
 
-@Component
+
 public class SearchCriteria {
-    @NotBlank
+
     private String query;
     private String searchBy;
 
@@ -20,7 +18,7 @@ public class SearchCriteria {
     public SearchCriteria() {
     }
 
-    public SearchCriteria(@NotBlank String query, String searchBy) {
+    public SearchCriteria(String query, String searchBy) {
         this.query = query;
         this.searchBy = searchBy;
     }
